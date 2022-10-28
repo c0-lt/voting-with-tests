@@ -16,7 +16,7 @@
   "singleQuote": false,
   "tabWidth": 2,
   "trailingComma": "es5",
-  "useTabs": true,
+  "useTabs": false,
   "vueIndentScriptAndStyle": false,
   "filepath": "/Users/quentin/Documents/Alyra/projects/voting-with-tests/test/spa.test.js",
   "parser": "babel"
