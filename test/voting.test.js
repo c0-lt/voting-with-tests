@@ -2,7 +2,7 @@ const Voting = artifacts.require("Voting.sol");
 const {BN, expectRevert, expectEvent} = require("@openzeppelin/test-helpers");
 const {expect} = require("chai");
 
-contract("Voting", (accounts) => {
+contract("Test of Voting contract", (accounts) => {
   const admin = accounts[0];
   const voter1 = accounts[1];
   const voter2 = accounts[2];
@@ -10,17 +10,21 @@ contract("Voting", (accounts) => {
 
   let votingInstance;
 
+  function buildVoting() {
+    return Voting.new({from: admin});
+  }
+
   // TEST TEMPLATE
   describe("", () => {
     before(async () => {
-      votingInstance = await Voting.new({from: admin});
+      votingInstance = await buildVoting();
     });
     it("", async () => {});
   });
 
   describe.skip("Registration", () => {
     beforeEach(async () => {
-      votingInstance = await Voting.new({from: admin});
+      votingInstance = await buildVoting();
     });
 
     it("should have a voting admin", async () => {
@@ -55,7 +59,7 @@ contract("Voting", (accounts) => {
 
   describe.skip("Proposal management", () => {
     beforeEach(async () => {
-      votingInstance = await Voting.new({from: admin});
+      votingInstance = await buildVoting();
       await votingInstance.addVoter(voter1, {from: admin});
       await votingInstance.addVoter(voter2, {from: admin});
       await votingInstance.startProposalsRegistering({from: admin});
@@ -94,7 +98,7 @@ contract("Voting", (accounts) => {
 
   describe("Voter management", () => {
     before(async () => {
-      votingInstance = await Voting.new({from: admin});
+      votingInstance = await buildVoting();
     });
 
     it("Already registerd voter, revert", async () => {
@@ -108,7 +112,7 @@ contract("Voting", (accounts) => {
 
   describe("Test setVote", () => {
     before(async () => {
-      votingInstance = await Voting.new({from: admin});
+      votingInstance = await buildVoting();
       await votingInstance.addVoter(voter1, {from: admin});
       await votingInstance.addVoter(voter2, {from: admin});
       await votingInstance.startProposalsRegistering({from: admin});
