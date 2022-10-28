@@ -1,0 +1,5 @@
+.vscode/*
+.deps/*
+artifacts/*
+node_modules
+
