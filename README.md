@@ -32,8 +32,8 @@ Les jeux de test du contrat Voting sont organisés de la manière suivante :
         ✓ should'nt be called by admin (27ms)
       Test of proposal management : addProposal
         ✓ Should add a proposal description with 0 voteCount (46ms, 59316 gas)
-        ✓ Should add a proposal as admin, revert (12ms)
-        ✓ Should add a proposal as unregistered voter, revert (11ms)
+        ✓ Should'nt add a proposal as admin, revert (12ms)
+        ✓ Should'nt add a proposal as unregistered voter, revert (11ms)
         ✓ Should'nt accept an empty proposal, revert (12ms)
         ✓ Should emit ProposalRegistered event (42ms, 59316 gas)
       Test of proposal management : getOneProposal
