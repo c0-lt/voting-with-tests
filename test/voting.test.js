@@ -136,14 +136,14 @@ contract("Test cases for Voting contract", (accounts) => {
       expect(prop.voteCount).to.be.bignumber.equal(BN(0));
     });
 
-    it("Should add a proposal as admin, revert", async () => {
+    it("Should'nt add a proposal as admin, revert", async () => {
       await expectRevert(
         votingInstance.addProposal("Proposition admin", {from: admin}),
         "You're not a voter"
       );
     });
 
-    it("Should add a proposal as unregistered voter, revert", async () => {
+    it("Should'nt add a proposal as unregistered voter, revert", async () => {
       await expectRevert(
         votingInstance.addProposal(prop3, {from: voter3}),
         "You're not a voter"
